@@ -26,7 +26,7 @@ func TestSpan(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
-			s := &onlinestockspan.StockSpanner{}
+			s := onlinestockspan.Constructor()
 			for i, in := range tc.input {
 				if out := s.Next(in); tc.output[i] != out {
 					t.Fatalf("expected %v but got %v for index %v on val %v", tc.output[i], out, i, tc.input[i])

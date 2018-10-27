@@ -5,33 +5,30 @@ Leetcode #901
 package onlinestockspan
 
 import (
-	"math"
+	"github.com/limianwang/goexamples/datastructures/stack"
 )
 
 type StockSpanner struct {
-	stocks      []int
+	stocks      *stack.Stack
+	weight      *stack.Stack
 	count       int
 	lastHighest int
 }
 
 func Constructor() StockSpanner {
 	return StockSpanner{
-		stocks:      []int{},
-		count:       0,
-		lastHighest: math.MaxInt64,
+		stocks: stack.New(),
+		weight: stack.New(),
 	}
 }
 
 func (this *StockSpanner) Next(price int) int {
-	days := 0
-	this.stocks = append(this.stocks, price)
-
-	for i := len(this.stocks) - 1; i >= 0; i-- {
-		if price >= this.stocks[i] {
-			days++
-		} else {
-			break
-		}
+	w := 1
+	for !this.stocks.IsEmpty() && this.stocks.Peek() <= price {
+		this.stocks.Pop()
+		w += this.weight.Pop()
 	}
-	return days
+	this.stocks.Push(price)
+	this.weight.Push(w)
+	return w
 }
