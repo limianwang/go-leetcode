@@ -11,7 +11,7 @@ func TestFirstPeak(t *testing.T) {
 		{
 			name:     "success1",
 			input:    []int{1, 2, 1, 3, 5, 6, 4},
-			expected: 1,
+			expected: 5,
 		},
 		{
 			name:     "success2",
@@ -32,7 +32,6 @@ func TestFirstPeak(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
-			t.Parallel()
 			if out := findPeakElement(tc.input); out != tc.expected {
 				t.Fatalf("expected %v but got %v", tc.expected, out)
 			}
