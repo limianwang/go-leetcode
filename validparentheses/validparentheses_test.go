@@ -42,8 +42,14 @@ func TestIsValid(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
-			if isValid(tc.input) != tc.expected {
-				t.Fatalf("expected %v but got %v for %v", tc.expected, isValid(tc.input), tc.input)
+			if result := isValid(tc.input); result != tc.expected {
+				t.Fatalf("expected %v but got %v for %v", tc.expected, result, tc.input)
+			}
+		})
+
+		t.Run(tc.name, func(t *testing.T) {
+			if result := isBalanced(tc.input); result != tc.expected {
+				t.Fatalf("expected %v but got %v for %v", tc.expected, result, tc.input)
 			}
 		})
 	}
