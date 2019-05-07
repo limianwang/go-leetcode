@@ -1,21 +1,23 @@
 package stack
 
+type Item interface{}
+
 type Stack struct {
-	storage []int
+	storage []Item
 }
 
 // New is the Constructor
 func New() *Stack {
 	return &Stack{
-		storage: []int{},
+		storage: []Item{},
 	}
 }
 
-func (s *Stack) Push(val int) {
+func (s *Stack) Push(val Item) {
 	s.storage = append(s.storage, val)
 }
 
-func (s *Stack) Pop() int {
+func (s *Stack) Pop() Item {
 	if len(s.storage) == 0 {
 		return -1
 	}
@@ -24,7 +26,7 @@ func (s *Stack) Pop() int {
 	return val
 }
 
-func (s *Stack) Peek() int {
+func (s *Stack) Peek() Item {
 	if len(s.storage) == 0 {
 		return -1
 	}

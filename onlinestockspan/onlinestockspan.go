@@ -24,9 +24,9 @@ func Constructor() StockSpanner {
 
 func (this *StockSpanner) Next(price int) int {
 	w := 1
-	for !this.stocks.IsEmpty() && this.stocks.Peek() <= price {
+	for !this.stocks.IsEmpty() && this.stocks.Peek().(int) <= price {
 		this.stocks.Pop()
-		w += this.weight.Pop()
+		w += this.weight.Pop().(int)
 	}
 	this.stocks.Push(price)
 	this.weight.Push(w)
