@@ -13,6 +13,14 @@ func fibonacci(n int, c chan int) {
 	close(c)
 }
 
+func recursive(n int) int {
+	if n <= 1 {
+		return n
+	}
+
+	return recursive(n-1) + recursive(n-2)
+}
+
 func fibonacci_alternate(c, quit chan int) {
 	x, y := 0, 1
 	for {
@@ -33,15 +41,17 @@ func main() {
 		fmt.Println(i)
 	}
 
-	ch := make(chan int)
-	quit := make(chan int)
-	go func() {
-		for i := 0; i < 10; i++ {
-			fmt.Println(<-ch)
-		}
+	// ch := make(chan int)
+	// quit := make(chan int)
+	// go func() {
+	// 	for i := 0; i < 10; i++ {
+	// 		fmt.Println(<-ch)
+	// 	}
 
-		quit <- 0
-	}()
+	// 	quit <- 0
+	// }()
 
-	fibonacci_alternate(c, quit)
+	// fibonacci_alternate(c, quit)
+
+	fmt.Println("hello", recursive(10))
 }
