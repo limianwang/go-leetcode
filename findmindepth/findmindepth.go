@@ -19,7 +19,7 @@ func minDepth(n *Node) int {
 		return 1
 	}
 
-	min := math.MinInt32
+	min := math.MaxInt32
 
 	if n.Left != nil {
 		min = compare(minDepth(n.Left), min)
