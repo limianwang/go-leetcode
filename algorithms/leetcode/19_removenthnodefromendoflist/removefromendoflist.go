@@ -1,7 +1,6 @@
-package removeNthNodeFromList
+package removenthnodefromendoflist
 
-/*
-LeetCode #19
+/**
 Given a linked list, remove the n-th node from the end of list and return its head.
 
 Example:
@@ -18,13 +17,22 @@ Follow up:
 Could you do this in one pass?
 */
 
-// ListNode represent a node of a given List
+// ListNode node of LinkedList
 type ListNode struct {
+	Val  int
 	Next *ListNode
 }
 
+/**
+x->1->2->3->4 (n = 2)
+^
+	       			F
+	    S
+
+*/
+
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	dummy := &ListNode{head}
+	dummy := &ListNode{0, head}
 	first := dummy
 	second := dummy
 
