@@ -23,6 +23,11 @@ func TestLongestPalindrome(t *testing.T) {
 			input:    "banana",
 			expected: "anana",
 		},
+		{
+			name:     "when there is only single character palindrome",
+			input:    "abcd",
+			expected: "a",
+		},
 	}
 
 	for _, tc := range tt {
