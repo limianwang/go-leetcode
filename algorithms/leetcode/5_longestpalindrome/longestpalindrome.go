@@ -3,6 +3,10 @@ package longestpalindrome
 func longestPalindrome(s string) string {
 	length := len(s)
 
+	if len(s) == 0 {
+		return ""
+	}
+
 	start := 0
 	maxLength := 1
 
@@ -19,7 +23,7 @@ func longestPalindrome(s string) string {
 	for i := 0; i < length-1; i++ {
 		if s[i] == s[i+1] {
 			dp[i][i+1] = true
-			start = 1
+			start = i
 			maxLength = 2
 		}
 	}
@@ -30,10 +34,10 @@ func longestPalindrome(s string) string {
 			if s[i] == s[j] && dp[i+1][j-1] {
 				dp[i][j] = true
 				start = i
-				maxLength = j + 1
+				maxLength = k
 			}
 		}
 	}
 
-	return s[start:maxLength]
+	return s[start : start+maxLength]
 }

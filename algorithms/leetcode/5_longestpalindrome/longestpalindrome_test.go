@@ -9,9 +9,29 @@ func TestLongestPalindrome(t *testing.T) {
 		expected string
 	}{
 		{
+			name:     "when empty string gets passed",
+			input:    "",
+			expected: "",
+		},
+		{
 			name:     "when input is abacd",
 			input:    "abacd",
 			expected: "aba",
+		},
+		{
+			name:     "when input is two char that is palindrome",
+			input:    "aa",
+			expected: "aa",
+		},
+		{
+			name:     "when input is two char that is not palindrome",
+			input:    "ab",
+			expected: "a",
+		},
+		{
+			name:     "when input is two char that has palindrome at end",
+			input:    "abdd",
+			expected: "dd",
 		},
 		{
 			name:     "when input is a string char",
@@ -24,9 +44,9 @@ func TestLongestPalindrome(t *testing.T) {
 			expected: "anana",
 		},
 		{
-			name:     "when there is only single character palindrome",
-			input:    "abcd",
-			expected: "a",
+			name:     "when there is all same characters",
+			input:    "aaa",
+			expected: "aaa",
 		},
 	}
 
