@@ -1,6 +1,10 @@
 package fibonaccinumber
 
 func fib(N int) int {
+	if N == 0 {
+		return 0
+	}
+
 	dp := make([]int, N)
 
 	if N >= 1 {

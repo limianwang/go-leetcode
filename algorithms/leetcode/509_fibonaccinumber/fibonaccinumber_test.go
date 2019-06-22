@@ -9,6 +9,11 @@ func TestFib(t *testing.T) {
 		expected int
 	}{
 		{
+			name:     "when N= 0 it should return 0",
+			input:    0,
+			expected: 0,
+		},
+		{
 			name:     "when N = 1 it should return 1",
 			input:    1,
 			expected: 1,
