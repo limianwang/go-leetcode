@@ -1,17 +1,18 @@
 package fibonaccinumber
 
-var cache map[int]int
-
-func init() {
-	cache = map[int]int{0: 0, 1: 1}
-}
-
 func fib(N int) int {
-	if val, ok := cache[N]; ok {
-		return val
+	dp := make([]int, N)
+
+	if N >= 1 {
+		dp[0] = 1
+	}
+	if N >= 2 {
+		dp[1] = 1
 	}
 
-	result := fib(N-1) + fib(N-2)
-	cache[N] = result
-	return result
+	for i := 2; i < N; i++ {
+		dp[i] = dp[i-1] + dp[i-2]
+	}
+
+	return dp[N-1]
 }
