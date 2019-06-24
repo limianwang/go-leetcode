@@ -42,8 +42,8 @@ func TestMerge(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
-			if merged := merge(tc.inputA, tc.sizeA, tc.inputB, tc.sizeB); !reflect.DeepEqual(merged, tc.expected) {
-				t.Fatalf("expected %v but got %v", tc.expected, merged)
+			if merge(tc.inputA, tc.sizeA, tc.inputB, tc.sizeB); !reflect.DeepEqual(tc.inputA, tc.expected) {
+				t.Fatalf("expected %v but got %v", tc.expected, tc.inputA)
 			}
 		})
 	}
