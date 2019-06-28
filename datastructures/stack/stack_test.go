@@ -3,7 +3,7 @@ package stack_test
 import (
 	"testing"
 
-	"github.com/limianwang/goexamples/datastructures/stack"
+	"github.com/limianwang/go-leetcode/datastructures/stack"
 )
 
 func TestStack(t *testing.T) {
