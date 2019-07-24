@@ -26,8 +26,10 @@ func TestMinCost(t *testing.T) {
 	}
 
 	for _, tc := range tt {
-		if out := minCostClimbingStairs(tc.input); out != tc.expected {
-			t.Fatalf("expected %v, but got %v", tc.expected, out)
-		}
+		t.Run(tc.name, func(t *testing.T) {
+			if out := minCostClimbingStairs(tc.input); out != tc.expected {
+				t.Fatalf("expected %v, but got %v", tc.expected, out)
+			}
+		})
 	}
 }
