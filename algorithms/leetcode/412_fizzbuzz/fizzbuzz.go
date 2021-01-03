@@ -16,7 +16,6 @@ func fizzBuzz(n int) []string {
 	arr := []string{}
 
 	for i := 1; i <= n; i++ {
-		fmt.Printf("i=%d, n=%d\n", i, n)
 		entry := ""
 		if i%3 == 0 {
 			entry += "Fizz"

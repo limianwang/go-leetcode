@@ -1,7 +1,5 @@
 package uniquepath
 
-import "fmt"
-
 func uniquePaths(m int, n int) int {
 	dp := make([][]int, m)
 
@@ -20,8 +18,6 @@ func uniquePaths(m int, n int) int {
 			}
 		}
 	}
-
-	fmt.Println(dp)
 
 	return dp[m-1][n-1]
 }
